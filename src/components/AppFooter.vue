@@ -80,10 +80,11 @@ const emailHref = computed(() => `mailto:${props.email}`)
         <!-- Main title section -->
         <div class="relative px-4 sm:px-6 py-12 sm:py-16 text-center">
             <h2
-                class="font-black text-[clamp(3.5rem,10vw,8rem)] sm:text-[clamp(3.5rem,12vw,8rem)] leading-[0.85] tracking-tight text-red-400 drop-shadow-lg">
+                class="font-black text-[clamp(3.5rem,10vw,8rem)] sm:text-[clamp(3.5rem,12vw,8rem)] leading-[0.85] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-red-400 via-red-500 to-red-600">
                 <span class="block">THE</span>
                 <span class="block">ROASTER GRILL</span>
             </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mt-8 rounded-full"></div>
         </div>
 
         <!-- Contact information - prominently placed after title -->
@@ -92,8 +93,8 @@ const emailHref = computed(() => `mailto:${props.email}`)
                 <!-- Contact subtext -->
                 <div class="mb-8 sm:mb-10 lg:mb-12">
                     <p
-                        class="text-lg sm:text-xl lg:text-2xl text-gray-200 leading-relaxed font-medium max-w-3xl mx-auto">
-                        Ready to experience the finest flame-kissed pork? Get in touch with us for catering inquiries,
+                        class="text-lg sm:text-xl lg:text-2xl text-gray-200 leading-relaxed font-serif max-w-3xl mx-auto">
+                        Ready to experience the finest <span class="text-red-400">flame-kissed pork</span>? Get in touch with us for catering inquiries,
                         event bookings, or to place your order.
                     </p>
                 </div>
@@ -101,51 +102,48 @@ const emailHref = computed(() => `mailto:${props.email}`)
                 <!-- Contact grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center max-w-4xl mx-auto">
                     <!-- Phone -->
-                    <div class="flex flex-col items-center md:items-start space-y-2 sm:space-y-3">
-                        <div class="text-center md:text-left">
-                            <p class="text-sm sm:text-md uppercase tracking-wider text-red-300 font-medium">Phone</p>
+                    <div class="flex flex-col items-center md:items-start space-y-2 sm:space-y-3 group">
+                        <div class="text-center md:text-left relative">
+                            <p class="text-sm sm:text-md uppercase tracking-wider text-red-300 font-medium mb-2">Phone</p>
                             <a :href="phoneHref"
-                                class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white hover:text-red-200 transition-colors duration-300 block break-words">
+                                class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white group-hover:text-red-200 transition-colors duration-300 block break-words relative">
                                 {{ props.phone }}
+                                <div class="absolute -bottom-2 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                             </a>
                         </div>
                     </div>
 
                     <!-- Email -->
-                    <div class="flex flex-col items-center md:items-end space-y-2 sm:space-y-3">
-                        <div class="text-center md:text-right">
-                            <p class="text-sm sm:text-md uppercase tracking-wider text-red-300 font-medium">Email</p>
+                    <div class="flex flex-col items-center md:items-end space-y-2 sm:space-y-3 group">
+                        <div class="text-center md:text-right relative">
+                            <p class="text-sm sm:text-md uppercase tracking-wider text-red-300 font-medium mb-2">Email</p>
                             <a :href="emailHref"
-                                class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white hover:text-red-200 transition-colors duration-300 block break-words">
+                                class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white group-hover:text-red-200 transition-colors duration-300 block break-words relative">
                                 {{ props.email }}
+                                <div class="absolute -bottom-2 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right"></div>
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Brand messaging section -->
-        <div class="px-4 sm:px-6 py-8 text-center">
-            <div class="max-w-4xl mx-auto">
-                <p class="text-sm text-gray-100 leading-relaxed sm:leading-loose font-medium mb-6 px-2">
-                    "Flame‑kissed, fresh, and fast. Premium pork sourcing and open-flame roasting - succulent, tender,
-                    smoky results for weddings, corporate events, and home meals."
-                </p>
             </div>
         </div>
 
         <!-- Information columns -->
         <div class="px-4 sm:px-6 py-8 sm:py-8">
             <div
-                class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 text-sm tracking-[0.15em] uppercase">
+                class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 text-xs tracking-[0.15em] uppercase">
                 <div class="space-y-3 sm:space-y-4 text-center md:text-left">
                     <div
                         class="text-red-300 hover:text-red-200 transition-colors duration-300 cursor-pointer hover:scale-105">
                         TERMS &amp; CONDITIONS</div>
                 </div>
+                <div class="space-y-3 sm:space-y-4 text-center">
+                    <div
+                        class="text-red-300 hover:text-red-200 transition-colors duration-300 cursor-pointer hover:scale-105">
+                        PRIVACY POLICY</div>
+                </div>
                 <div class="space-y-3 sm:space-y-4 text-center md:text-right">
-                    <div class="text-xs font-medium text-red-300/80">
+                    <div class="text-xs font-medium text-red-300/80 font-serif">
                         © {{ new Date().getFullYear() }} THE ROASTER GRILL
                     </div>
                 </div>
